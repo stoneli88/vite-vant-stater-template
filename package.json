@@ -6,7 +6,8 @@
     "dev": "vite",
     "build": "vue-tsc --noEmit && vite build",
     "preview": "vite preview",
-    "lint:script": "eslint --ext .js,.jsx,.ts,.tsx ./src"
+    "lint": "eslint --ext .js,.jsx,.ts,.tsx ./src",
+    "postinstall": "husky install"
   },
   "dependencies": {
     "axios": "^0.27.2",
@@ -16,6 +17,8 @@
     "vue-router": "^4.1.5"
   },
   "devDependencies": {
+    "@commitlint/cli": "^17.1.2",
+    "@commitlint/config-conventional": "^17.1.0",
     "@iconify/iconify": "^2.2.1",
     "@iconify/json": "^2.1.104",
     "@purge-icons/generated": "^0.9.0",
@@ -29,10 +32,13 @@
     "@vueuse/integrations": "^9.2.0",
     "@vueuse/motion": "2.0.0-beta.12",
     "@vueuse/router": "^9.2.0",
+    "commitlint": "^17.1.2",
     "eslint": "8.0.1",
     "eslint-config-prettier": "^8.5.0",
     "eslint-plugin-prettier": "^4.2.1",
     "eslint-plugin-vue": "^9.4.0",
+    "husky": "^8.0.1",
+    "lint-staged": "^13.0.3",
     "prettier": "^2.7.1",
     "typescript": "*",
     "unplugin-auto-import": "^0.11.2",
@@ -44,5 +50,11 @@
     "vite-plugin-svg-icons": "^2.0.1",
     "vue-eslint-parser": "9.0.0",
     "vue-tsc": "^0.40.4"
+  },
+  "lint-staged": {
+    "**/*.{js,jsx,tsx,ts}": [
+      "npm run lint",
+      "git add ."
+    ]
   }
 }
