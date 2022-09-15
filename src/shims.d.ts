@@ -9,3 +9,10 @@ declare module '*.vue' {
 declare module '@vue/runtime-dom' {
   interface HTMLAttributes extends AttributifyAttributes {}
 }
+
+declare global {
+  declare type Recordable<T = any> = Record<string, T>;
+  declare type ReadonlyRecordable<T = any> = {
+    readonly [key: string]: T;
+  };
+}

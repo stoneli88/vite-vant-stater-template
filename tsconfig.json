@@ -11,10 +11,19 @@
     "resolveJsonModule": true,
     "isolatedModules": true,
     "esModuleInterop": true,
+    "noImplicitAny": false,
+    "forceConsistentCasingInFileNames": true,
+    "allowSyntheticDefaultImports": true,
+    "strictFunctionTypes": false,
     "lib": ["ESNext", "DOM"],
     "skipLibCheck": true,
+    "paths": {
+      "/@/*": ["src/*"],
+    },
     "types": [
-      "unplugin-icons/types/vue"
+      "unplugin-icons/types/vue",
+      "vite/client",
+      "node"
     ]
   },
   "include": [
@@ -22,6 +31,7 @@
     "src/**/*.d.ts",
     "src/**/*.tsx",
     "src/**/*.vue",
+    "mocks/**/*.ts",
     "unocss.config.ts",
   ],
   "references": [{ "path": "./tsconfig.node.json" }],
